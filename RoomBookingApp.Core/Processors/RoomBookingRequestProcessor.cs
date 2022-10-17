@@ -10,6 +10,9 @@ namespace RoomBookingApp.Core.Processors
 
         public RoomBookingResult BookRoom(RoomBookingRequest request)
         {
+            if (request is null)
+                throw new ArgumentNullException(nameof(request));
+
             return new RoomBookingResult
             {
                 Date = request.Date,
