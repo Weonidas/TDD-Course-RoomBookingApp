@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RoomBookingApp.Core.Domain
+namespace RoomBookingApp.Persistence
 {
-    public class Room
+    public class RoomBookingAppDbContext
     {
-        public int Id { get; set; }
     }
 }

@@ -1,9 +1,9 @@
 ﻿using Moq;
-using RoomBookingApp.Core.Domain;
 using RoomBookingApp.Core.Enums;
 using RoomBookingApp.Core.Models;
 using RoomBookingApp.Core.Processors;
 using RoomBookingApp.Core.Services;
+using RoomBookingApp.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
