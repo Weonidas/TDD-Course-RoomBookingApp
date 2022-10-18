@@ -5,5 +5,6 @@ namespace RoomBookingApp.Core.Models
     public class RoomBookingResult : RoomBookingBase
     {
         public BookingResultFlag ResultFlag { get; set; }
+        public int? RoomBookingId { get; set; }
     }
 }

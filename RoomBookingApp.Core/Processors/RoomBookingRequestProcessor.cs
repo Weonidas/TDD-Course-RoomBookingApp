@@ -28,6 +28,8 @@ namespace RoomBookingApp.Core.Processors
                 var roomBooking = CreateRoomBookingObject<RoomBooking>(request);
                 roomBooking.RoomId = room.Id;
                 _roomBookingService.Save(roomBooking);
+
+                roomBookingResult.RoomBookingId = roomBooking.Id;
                 roomBookingResult.ResultFlag = BookingResultFlag.Success;
             }
             else
