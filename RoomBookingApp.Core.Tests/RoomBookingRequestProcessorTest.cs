@@ -26,7 +26,7 @@ namespace RoomBookingApp.Core
                 Email = "test@mail.com",
                 Date = new DateTime(2022, 10, 15)
             };
-            _availableRooms = new List<Room>() { new Room() };
+            _availableRooms = new List<Room>() { new Room() { Id = 1 } };
             _roomBookingServiceMock = new Mock<IRoomBookingService>();
             _roomBookingServiceMock.Setup(q => q.GetAvailableRooms(_request.Date))
                 .Returns(_availableRooms);
@@ -69,6 +69,7 @@ namespace RoomBookingApp.Core
             Assert.Equal(_request.FullName, savedBooking.FullName);
             Assert.Equal(_request.Email, savedBooking.Email);
             Assert.Equal(_request.Date, savedBooking.Date);
+            Assert.Equal(_availableRooms.First().Id, savedBooking.RoomId);
         }
 
         [Fact]
