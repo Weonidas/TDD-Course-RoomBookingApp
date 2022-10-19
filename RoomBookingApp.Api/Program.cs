@@ -19,8 +19,20 @@ connection.Open();
 
 builder.Services.AddDbContext<RoomBookingAppDbContext>(opt => opt.UseSqlite(connection));
 
+EnsureDatabaseIsCreated(connection);
+
 builder.Services.AddScoped<IRoomBookingService, RoomBookingService>();
 builder.Services.AddScoped<IRoomBookingRequestProcessor, RoomBookingRequestProcessor>();
+
+static void EnsureDatabaseIsCreated(SqliteConnection connection)
+{
+    var builder = new DbContextOptionsBuilder<RoomBookingAppDbContext>();
+    builder.UseSqlite(connection);
+
+    using var context = new RoomBookingAppDbContext(builder.Options);
+    context.Database.EnsureCreated();
+}
+
 
 var app = builder.Build();
 

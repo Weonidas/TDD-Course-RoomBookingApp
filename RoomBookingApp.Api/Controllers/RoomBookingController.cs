@@ -17,7 +17,7 @@ namespace RoomBookingApp.Api.Controllers
             _processor = processor;
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> BookRoom(RoomBookingRequest bookingRequest)
         {
             if(ModelState.IsValid)
